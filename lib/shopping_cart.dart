@@ -46,4 +46,3 @@ class ShoppingCart {
     return Get.find<Cart<T>>();
   }
 }
-
