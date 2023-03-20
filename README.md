@@ -1,6 +1,8 @@
 ![](https://img.shields.io/github/stars/egortabula/shopping_cart?style=social) ![](https://img.shields.io/github/checks-status/egortabula/shopping_cart/main) ![](https://img.shields.io/badge/Support-Android%20%7C%20IOS%20%7C%20Mac%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-brightgreen)
 ![](https://i.ibb.co/fdzqFyR/shopping-cart-flutter-package.jpg)
 
+
+<!-- vscode-markdown-toc -->
 * 1. [About ShoppingCart](#AboutShoppingCart)
 * 2. [Installing](#Installing)
 	* 2.1. [Additional dependencies](#Additionaldependencies)
@@ -32,6 +34,11 @@
 		* 3.6.2. [Use StreamBuilder](#UseStreamBuilder)
 * 4. [Conclusion](#Conclusion)
 
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 
 ##  1. <a name='AboutShoppingCart'></a>About ShoppingCart
 ShoppingCart is a Flutter library that simplifies the creation and management of a shopping cart in your Flutter applications.
