@@ -1,6 +1,6 @@
 name: shopping_cart
 description: ShoppingCart is a Flutter library that simplifies the creation and management of a shopping cart in your Flutter applications.
-version: 0.0.1
+version: 0.0.2
 homepage:
 repository: https://github.com/egortabula/shopping_cart
 issue_tracker: https://github.com/egortabula/shopping_cart/issues
