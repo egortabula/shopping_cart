@@ -1,5 +1,8 @@
-
+![](https://img.shields.io/github/stars/egortabula/shopping_cart?style=social) ![](https://img.shields.io/github/checks-status/egortabula/shopping_cart/main) ![](https://img.shields.io/badge/Support-Android%20%7C%20IOS%20%7C%20Mac%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-brightgreen) ![](https://img.shields.io/badge/My-Telegram-blue?link=https://t.me/egor_tabula)
 ![](https://i.ibb.co/fdzqFyR/shopping-cart-flutter-package.jpg)
+![](https://i.ibb.co/fdzqFyR/shopping-cart-flutter-package.jpg)
+
+[TOCM]
 
 [TOC]
 
@@ -431,7 +434,7 @@ class ItemsListWidget extends StatelessWidget {
 ```
 About how Obx works, you can read on the [Get package page](https://pub.dev/packages/get).
 
-You can check out a complete example of using this package by downloading the example project from [Github repo](https://github.com/egortabula) and running it on your machine. Everything is already set up and working there. I tried to use all the features of this package in that project!
+You can check out a complete example of using this package by downloading the example project from [Github repo](https://github.com/egortabula/shopping_cart) and running it on your machine. Everything is already set up and working there. I tried to use all the features of this package in that project!
 ____
 
 #### Use StreamBuilder
@@ -485,6 +488,9 @@ class ItemsListStreamWidget extends StatelessWidget {
 }
 ```
 ## Conclusion
-Thank you for watching until the end! I hope I was able to explain how this package works. But if you still have any questions, you can write to me on [Telegram](https://t.me/egor_tabula) or [GitHub](https://github.com/egortabula), and I will try to help as much as possible.
+Thank you for watching until the end! I hope I was able to explain how this package works. But if you still have any questions, you can write to me on [Telegram](https://t.me/egor_tabula) or [GitHub](https://github.com/egortabula/shopping_cart), and I will try to help as much as possible.
 
 I created this package for myself, as I often develop applications with a shopping cart. This package speeds up my work, and I hope it will help you too.
+
+
+[![Buy me a coffe](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png "Buy me a coffe")](https://www.buymeacoffee.com/egortabula "Buy me a coffe")
