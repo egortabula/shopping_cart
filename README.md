@@ -1,10 +1,10 @@
-![](https://img.shields.io/github/stars/egortabula/shopping_cart?style=social) ![](https://img.shields.io/github/checks-status/egortabula/shopping_cart/main) ![](https://img.shields.io/badge/Support-Android%20%7C%20IOS%20%7C%20Mac%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-brightgreen) ![]
+![](https://img.shields.io/github/stars/egortabula/shopping_cart?style=social) ![](https://img.shields.io/github/checks-status/egortabula/shopping_cart/main) ![](https://img.shields.io/badge/Support-Android%20%7C%20IOS%20%7C%20Mac%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-brightgreen)
 ![](https://i.ibb.co/fdzqFyR/shopping-cart-flutter-package.jpg)
 
-- 1. [About ShoppingCart](#AboutShoppingCart)
-- 2. [Installing](#Installing)
+* 1. [About ShoppingCart](#AboutShoppingCart)
+* 2. [Installing](#Installing)
 	* 2.1. [Additional dependencies](#Additionaldependencies)
-- 3. [Usage](#Usage)
+* 3. [Usage](#Usage)
 	* 3.1. [Creating custom item class](#Creatingcustomitemclass)
 	* 3.2. [Initialisation](#Initialisation)
 	* 3.3. [Get instance](#Getinstance)
@@ -30,7 +30,7 @@
 	* 3.6. [Rebuild ui](#Rebuildui)
 		* 3.6.1. [Use Get](#UseGet)
 		* 3.6.2. [Use StreamBuilder](#UseStreamBuilder)
-- 4. [Conclusion](#Conclusion)
+* 4. [Conclusion](#Conclusion)
 
 
 ##  1. <a name='AboutShoppingCart'></a>About ShoppingCart
