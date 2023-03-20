@@ -17,7 +17,6 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   void initState() {
-    //TODO: add documentation
     ShoppingCart.init<FoodModel>();
     super.initState();
   }
@@ -30,7 +29,6 @@ class _MenuPageState extends State<MenuPage> {
         actions: [
           IconButton(
             onPressed: () {
-              //TODO: add documentation
               Get.put(CartController());
               Get.toNamed('/cart');
             },
@@ -109,7 +107,6 @@ class _CatalogCard extends StatelessWidget {
           const SizedBox(height: 16),
           OutlinedButton.icon(
             onPressed: () {
-              //TODO: add documentation
               final instance = ShoppingCart.getInstance<FoodModel>();
 
               final FoodModel model = FoodModel(
