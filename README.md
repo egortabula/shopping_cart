@@ -1,42 +1,41 @@
 ![](https://img.shields.io/github/stars/egortabula/shopping_cart?style=social) ![](https://img.shields.io/github/checks-status/egortabula/shopping_cart/main) ![](https://img.shields.io/badge/Support-Android%20%7C%20IOS%20%7C%20Mac%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-brightgreen)
 ![](https://i.ibb.co/fdzqFyR/shopping-cart-flutter-package.jpg)
 
+- [About ShoppingCart](#about-shoppingcart)
+- [Installing](#installing)
+  - [Additional dependencies](#additional-dependencies)
+- [Usage](#usage)
+  - [Creating custom item class](#creating-custom-item-class)
+  - [Initialisation](#initialisation)
+  - [Get instance](#get-instance)
+  - [Getters](#getters)
+    - [CartItems](#cartitems)
+    - [CartTotal](#carttotal)
+    - [TotalCartPriceInt](#totalcartpriceint)
+    - [itemCount](#itemcount)
+    - [cartItemsStream](#cartitemsstream)
+  - [Methods](#methods)
+    - [Get item from cart](#get-item-from-cart)
+    - [Finding an item by ID](#finding-an-item-by-id)
+    - [Has item with id](#has-item-with-id)
+    - [Contains cart item](#contains-cart-item)
+    - [Adding items to the cart](#adding-items-to-the-cart)
+    - [Removing items from the cart](#removing-items-from-the-cart)
+    - [Increment item quantity](#increment-item-quantity)
+    - [Decrement item quantity](#decrement-item-quantity)
+    - [Calculate item total price by ID](#calculate-item-total-price-by-id)
+    - [Update item](#update-item)
+    - [Refresh cart](#refresh-cart)
+    - [Clear all items](#clear-all-items)
+  - [Rebuild ui](#rebuild-ui)
+    - [Use Get](#use-get)
+    - [Use StreamBuilder](#use-streambuilder)
+- [Conclusion](#conclusion)
 
-* 1. [About ShoppingCart](#1-About-ShoppingCart)
-* 2. [Installing](#2-Installing)
-	* 2.1. [Additional dependencies](#21-Additional-dependencies)
-* 3. [Usage](#3-Usage)
-	* 3.1. [Creating custom item class](#31-Creating-custom-item-class)
-	* 3.2. [Initialisation](#32-Initialisation)
-	* 3.3. [Get instance](#33-Get-instance)
-	* 3.4. [Getters](#34-Getters)
-		* 3.4.1. [CartItems](#341-Cart-Items)
-		* 3.4.2. [CartTotal](#342-Cart-Total)
-		* 3.4.3. [TotalCartPriceInt](#343-Total-Cart-Price-Int)
-		* 3.4.4. [itemCount](#344-item-Count)
-		* 3.4.5. [cartItemsStream](#345-cart-Items-Stream)
-	* 3.5. [Methods](#35-Methods)
-		* 3.5.1. [Get item from cart](#351-Get-item-from-cart)
-		* 3.5.2. [Finding an item by ID](#352-Finding-an-item-by-ID)
-		* 3.5.3. [Has item with id](#353-Has-item-with-id)
-		* 3.5.4. [Contains cart item](#354-Contains-cart-item)
-		* 3.5.5. [Adding items to the cart](#355-Adding-items-to-the-cart)
-		* 3.5.6. [Removing items from the cart](#356-Removing-items-from-the-cart)
-		* 3.5.7. [Increment item quantity](#357-Increment-item-quantity)
-		* 3.5.8. [Decrement item quantity](#358-Decrement-item-quantity)
-		* 3.5.9. [Calculate item total price by ID](#359-Calculate-item-total-price-by-ID)
-		* 3.5.10. [Update item](#3510-Update-item)
-		* 3.5.11. [Refresh cart](#3511-Refresh-cart)
-		* 3.5.12. [Clear all items](#3512-Clear-all-items)
-	* 3.6. [Rebuild ui](#36-Rebuild-ui)
-		* 3.6.1. [Use Get](#361-Use-Get)
-		* 3.6.2. [Use StreamBuilder](#362-Use-Stream-Builder)
-* 4. [Conclusion](#4-Conclusion)
 
-
-##  1. <a name='AboutShoppingCart'></a>About ShoppingCart
+## About ShoppingCart
 ShoppingCart is a Flutter library that simplifies the creation and management of a shopping cart in your Flutter applications.
-##  2. <a name='Installing'></a>Installing
+## Installing
 Add the following dependency to your pubspec.yaml file:
 ```yaml
 dependencies:
@@ -46,7 +45,7 @@ Then, import the library in your Dart code:
 ```dart
 import 'package:food_cart/food_cart.dart';
 ```
-###  2.1. <a name='Additionaldependencies'></a>Additional dependencies
+### Additional dependencies
 I also recommend adding the following 2 packages, they are necessary for the full functioning of the library.
 ```yaml
 dependencies:
@@ -57,8 +56,8 @@ dependencies:
 - The package "[Equatable](https://pub.dev/packages/equatable)" is necessary to compare the models of your products in the cart and find the necessary one.
 
 
-##  3. <a name='Usage'></a>Usage
-###  3.1. <a name='Creatingcustomitemclass'></a>Creating custom item class
+## Usage
+### Creating custom item class
 Firstly you need to create a model of your product, this is a mandatory step!
 
 Simply create a class with any name and extend it from the **ItemModel** class, which is part of this package, and also, if you added the equatable package, add the **EquatableMixin** mixin.
@@ -107,7 +106,7 @@ The abstract class ItemModel already has 3 mandatory fields without which nothin
   
 Therefore, please do not recreate these fields in your class!
 
-###  3.2. <a name='Initialisation'></a>Initialisation
+### Initialisation
 After you have created your item model, it is necessary to initialize the shopping cart. This should be done before you start using the API of this package.
 
 To get started, call the `ShoppingCart.init<T>()` method to initialize a new instance of Cart<T> and register it. Replace <T> with the type of item that you want to add to the cart. For example, to add FoodModel objects to the cart:
@@ -115,7 +114,7 @@ To get started, call the `ShoppingCart.init<T>()` method to initialize a new ins
 ShoppingCart.init<FoodModel>();
 ```
 
-###  3.3. <a name='Getinstance'></a>Get instance
+### Get instance
 One of the great advantages of my package is that you can get the cart instance anywhere in your code and you don't need to save and pass it from screen to screen on your own.
 
 To retrieve the current instance of Cart<T> call the ShoppingCart.getInstance<T>() method. For example:
@@ -124,8 +123,8 @@ final cart = ShoppingCart.getInstance<FoodModel>();
 ```
 Make sure to pass your item model class that you created at the beginning of this guide in <> brackets, in my case it's FoodModel. If you don't pass it, you will get an error!
 
-###  3.4. <a name='Getters'></a>Getters
-####  3.4.1. <a name='CartItems'></a>CartItems
+### Getters
+#### CartItems
 To get the list of items in the cart, simply access the cartItems getter.
 
 ```dart
@@ -136,7 +135,7 @@ final items = instance.cartItems;
 
 The `cartItems` object is already observable and has the type `RxList<T>` since I used Get package.
 
-####  3.4.2. <a name='CartTotal'></a>CartTotal
+#### CartTotal
 
 Returns the total price of all items in the cart.
 
@@ -148,7 +147,7 @@ final cartTotal = instance.cartTotal;
 
 This getter calculates the total price of all items in the cart by iterating through `cartItems` and adding the price of each item multiplied by its quantity. The result is returned as a `double`.
 
-####  3.4.3. <a name='TotalCartPriceInt'></a>TotalCartPriceInt
+#### TotalCartPriceInt
 This getter returns the total price of all items in the cart as an integer. This is simmilar to `cartTotal`, but it return `int`
 
 ```dart
@@ -157,7 +156,7 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 final totalCartPriceInt = instance.totalCartPriceInt;
 ```
 
-####  3.4.4. <a name='itemCount'></a>itemCount
+#### itemCount
  Returns the number of items currently in the cart.
 
 ```dart
@@ -168,7 +167,7 @@ final cartLength = instance.itemCount;
 
 This is same as `instance.cartItems.length`
 
-####  3.4.5. <a name='cartItemsStream'></a>cartItemsStream
+#### cartItemsStream
 A stream of `cartItems` that emits whenever the list of items in the cart changes.
 ```dart
 class CartITemsStreamWidgetExample extends StatelessWidget {
@@ -202,9 +201,9 @@ class CartITemsStreamWidgetExample extends StatelessWidget {
 }
 ```
 
-###  3.5. <a name='Methods'></a>Methods
+### Methods
 
-####  3.5.1. <a name='Getitemfromcart'></a>Get item from cart
+#### Get item from cart
 Returns the item from `cartItems` that matches the given `itemModel`.
 
 ```dart
@@ -214,7 +213,7 @@ final item = instance.getItemFromCart(yourItemModel);
 ```
 This method is mainly used for all other methods, such as increasing the quantity of an item, decreasing it, deleting it, updating it. But in some cases, you may also need it.
 
-####  3.5.2. <a name='FindinganitembyID'></a>Finding an item by ID
+#### Finding an item by ID
 
 To find an item in the cart by ID, call the `findItemById` method on the Cart instance:
 
@@ -224,7 +223,7 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 final item = instance.findItemById(1);
 ```
 
-####  3.5.3. <a name='Hasitemwithid'></a>Has item with id
+#### Has item with id
 Returns `true` if an item with the specified `id` is already in the cart. Returns `false` otherwise.
 
 ```dart
@@ -236,7 +235,7 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 final bool result = instance.hasItemWithId(1);
 ```
 
-####  3.5.4. <a name='Containscartitem'></a>Contains cart item
+#### Contains cart item
 This method checks if the item is already in the cart.
 
 This is like method `getItemFromCart`, but this method will return a bool value
@@ -249,7 +248,7 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 final bool result = instance.containsCartItem(yourItemModel);
 ```
 
-####  3.5.5. <a name='Addingitemstothecart'></a>Adding items to the cart
+#### Adding items to the cart
 To add an item to the cart, simply call the `addItemToCart` method on the Cart instance:
 
 ```dart
@@ -268,7 +267,7 @@ instance.addItemToCart(item);
 ```
 If the item already exists in the cart, its quantity will be **increased by one**.
 
-####  3.5.6. <a name='Removingitemsfromthecart'></a>Removing items from the cart
+#### Removing items from the cart
 To remove an item from the cart, call the removeItemFromCart method on the Cart instance:
 
 ```dart
@@ -279,7 +278,7 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 instance.removeItemFromCart(item); 
 ```
 
-####  3.5.7. <a name='Incrementitemquantity'></a>Increment item quantity
+#### Increment item quantity
 Increases the quantity of an item in the cart by one.
 
 ```dart
@@ -290,7 +289,7 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 instance.incrementItemQuantity(yourItem);
 ```
 
-####  3.5.8. <a name='Decrementitemquantity'></a>Decrement item quantity
+#### Decrement item quantity
 Decrement the quantity of an item in the cart by one.
 
 ```dart
@@ -302,7 +301,7 @@ instance.decrementItemQuantity(yourItem);
 ```
 **if the quantity of item is equal to 1, it will remove your item from cart!**
 
-####  3.5.9. <a name='CalculateitemtotalpricebyID'></a>Calculate item total price by ID
+#### Calculate item total price by ID
 Calculates the total price of an item with the specified `id` in the cart.
 
 ```dart
@@ -329,7 +328,7 @@ final item = instance.findItemById(1);
 final double totalItemPrice = item.calculateTotalItemPrice;
 ```
 
-####  3.5.10. <a name='Updateitem'></a>Update item
+#### Update item
 In some case you may need to update your item model values.
 
 ```dart
@@ -351,7 +350,7 @@ The `cartItems` will be updated and refreshed after the item is updated or remov
 
 The full example of using this method will be shown below.
 
-####  3.5.11. <a name='Refreshcart'></a>Refresh cart
+#### Refresh cart
 Use this method to update the UI after updating the values in your product model.
 
 ```dart
@@ -362,7 +361,7 @@ instance.refreshCart();
 
 But do not use this method with other methods of this package as they already use it by default.
 
-####  3.5.12. <a name='Clearallitems'></a>Clear all items
+#### Clear all items
 To clear all items from the cart, call the clearCart method on the Cart instance:
 
 ```dart
@@ -371,14 +370,14 @@ final instance = ShoppingCart.getInstance<FoodModel>();
 instance.clearCart();
 ```
 
-###  3.6. <a name='Rebuildui'></a>Rebuild ui
+### Rebuild ui
 Most likely, you will want to update (redraw) the ui, for example, when a new item is added to the cart, or when the total cost of all items in the cart is updated.
 
 As I mentioned before, `cartItems` is observable and uses Get for this purpose. Below, I will show two ways to rebuild the ui when performing any manipulations with `cartItems`. 
 
 And for this, you won't need to use `StatefulWidgets` and `SetState`!
 
-####  3.6.1. <a name='UseGet'></a>Use Get
+#### Use Get
 For example, let's say we need to display the total price of items in the cart on the screen, but we also need the widget with the total price to be redrawn every time the user, for example, removes an item from the cart or changes its quantity.
 
 
@@ -465,7 +464,7 @@ About how Obx works, you can read on the [Get package page](https://pub.dev/pack
 You can check out a complete example of using this package by downloading the example project from [Github repo](https://github.com/egortabula/shopping_cart) and running it on your machine. Everything is already set up and working there. I tried to use all the features of this package in that project!
 ____
 
-####  3.6.2. <a name='UseStreamBuilder'></a>Use StreamBuilder
+#### Use StreamBuilder
 If for some reason you don't want to use Get, I have also created a stream that returns the `cartItems`.
 
 **Example of usage**
@@ -515,7 +514,7 @@ class ItemsListStreamWidget extends StatelessWidget {
   }
 }
 ```
-##  4. <a name='Conclusion'></a>Conclusion
+## Conclusion
 Thank you for watching until the end! I hope I was able to explain how this package works. But if you still have any questions, you can write to me on [Telegram](https://t.me/egor_tabula) or [GitHub](https://github.com/egortabula/shopping_cart), and I will try to help as much as possible.
 
 I created this package for myself, as I often develop applications with a shopping cart. This package speeds up my work, and I hope it will help you too.
